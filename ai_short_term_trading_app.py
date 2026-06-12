@@ -2,13 +2,21 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from urllib.parse import quote
 
+from PIL import Image
+
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 import yfinance as yf
 
-st.set_page_config(page_title="AI Swing Trader", page_icon="💹", layout="centered")
+icon = Image.open("thomas_ai_stock_icon.png")
+
+st.set_page_config(
+    page_title="Thomas AI Stock",
+    page_icon=icon,
+    layout="centered"
+)
 
 DEFAULT_WATCHLIST = [
     "SMH", "NVDA", "AVGO", "AMD", "TSM", "MU", "MRVL", "ARM",
@@ -337,7 +345,9 @@ def show_candidate(row, key_prefix=""):
 # App UI
 # -----------------------------
 
-st.title("💹 AI Swing Trader")
+# st.title("💹 AI Swing Trader")
+st.title("🤖 Thomas AI Stock")
+
 st.caption("Short-term AI stock/ETF watchlist scanner and trade planner")
 st.warning("Educational tool only. Not financial advice. Use limit orders and confirm prices with your broker.")
 
